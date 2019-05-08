@@ -1,6 +1,6 @@
-package com.dolphin.webservice.web;
+package com.dolphin.webservice.web.dto;
 
-import com.dolphin.webservice.domain.posts.Posts;
+import com.dolphin.webservice.domain.Posts;
 
 import lombok.Builder;
 import lombok.Getter;

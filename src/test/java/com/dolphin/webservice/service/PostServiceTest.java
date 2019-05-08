@@ -9,9 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.dolphin.webservice.domain.posts.Posts;
-import com.dolphin.webservice.domain.posts.PostsRepository;
-import com.dolphin.webservice.web.PostsSaveRequestDto;
+import com.dolphin.webservice.domain.Posts;
+import com.dolphin.webservice.domain.repository.PostsRepository;
+import com.dolphin.webservice.web.dto.PostsSaveRequestDto;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest

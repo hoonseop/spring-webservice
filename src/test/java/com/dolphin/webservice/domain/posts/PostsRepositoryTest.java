@@ -16,6 +16,9 @@ import java.util.List;
 import org.junit.After;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.dolphin.webservice.domain.Posts;
+import com.dolphin.webservice.domain.repository.PostsRepository;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class PostsRepositoryTest {

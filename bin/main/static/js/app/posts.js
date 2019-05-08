@@ -1,7 +1,7 @@
 /**
  * 
  */
-var main = {
+var posts = {
     init : function () {
         var _this = this;
         $('#btn-save').on('click', function () {
@@ -31,4 +31,4 @@ var main = {
 
 };
 
-main.init();
+posts.init();

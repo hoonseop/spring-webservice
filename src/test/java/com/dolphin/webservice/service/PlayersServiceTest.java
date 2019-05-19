@@ -33,10 +33,10 @@ public class PlayersServiceTest {
         //given
         PlayersSaveRequestDto dto = PlayersSaveRequestDto.builder()
                 .teamName("wyverns")
-                .playerName("테스트")
-                .number(0)
-                .position("P")
-                .salary(0)
+                .playerName("최정")
+                .number(14)
+                .position("I")
+                .salary(1200)
                 .isEnroll(true)
                 .build();
 
@@ -44,12 +44,25 @@ public class PlayersServiceTest {
         playersService.save(dto);
 
         //then
-        Players players = playersRepository.findAll().get(0);
-        assertThat(players.getTeamName()).isEqualTo(dto.getTeamName());
-        assertThat(players.getPlayerName()).isEqualTo(dto.getPlayerName());
-        assertThat(players.getNumber()).isEqualTo(dto.getNumber());
-        assertThat(players.getPosition()).isEqualTo(dto.getPosition());
-        assertThat(players.getSalary()).isEqualTo(dto.getSalary());
-        assertThat(players.isEnroll()).isEqualTo(dto.isEnroll());
+        for(Players players: playersRepository.findAll()) {
+        	dto = PlayersSaveRequestDto.builder()
+                    .teamName(players.getTeamName())
+                    .playerName(players.getPlayerName())
+                    .number(players.getNumber())
+                    .position(players.getPosition())
+                    .salary(players.getSalary())
+                    .isEnroll(players.isEnroll())
+                    .build();
+            System.out.println(dto.toString());
+        }
+
+//        Players players = playersRepository.findAll().get(1);
+//        assertThat(players.getTeamName()).isEqualTo(dto.getTeamName());
+//        assertThat(players.getPlayerName()).isEqualTo(dto.getPlayerName());
+//        assertThat(players.getNumber()).isEqualTo(dto.getNumber());
+//        assertThat(players.getPosition()).isEqualTo(dto.getPosition());
+//        assertThat(players.getSalary()).isEqualTo(dto.getSalary());
+//        assertThat(players.isEnroll()).isEqualTo(dto.isEnroll());
+//        System.out.println("\n" + dto.toString() + "\n");
     }
 }

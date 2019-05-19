@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.dolphin.webservice.domain.repository.PlayersRepository;
-import com.dolphin.webservice.domain.repository.PostsRepository;
 import com.dolphin.webservice.web.dto.PlayersMainResponseDto;
 import com.dolphin.webservice.web.dto.PlayersSaveRequestDto;
 

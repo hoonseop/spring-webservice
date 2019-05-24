@@ -48,6 +48,11 @@ deploy:
       repo: hoonseop/spring-webservice
       branch: master
 
+# 디버그 추가
+addons:
+  artifacts:
+    debug: true
+    
 # CI 실행 완료시 메일로 알람
 notifications:
   email:

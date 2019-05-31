@@ -1,5 +1,8 @@
 package com.dolphin.webservice.web;
 
+import java.util.Arrays;
+
+import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,10 +22,18 @@ public class WebRestController {
 //    private PostsRepository postsRepository;
     private PostsService postsService;
     private PlayersService playersService;
+    private Environment environment;
 
 	@GetMapping("/hello")
     public String hello() {
         return "HelloWorld";
+    }
+
+	@GetMapping("/profile")
+    public String getProfile() {
+		return Arrays.stream(environment.getActiveProfiles())
+                .findFirst()
+                .orElse("");
     }
 
     @PostMapping("/posts")

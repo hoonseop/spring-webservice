@@ -5,7 +5,5 @@ spring:
 
 # local 환경
 ---
-spring:
-  profiles: local
-  jpa:
-    show-sql: true
+spring.profiles: local
+spring.profiles.include: real-db

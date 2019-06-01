@@ -1,9 +1,11 @@
 # Test
 spring:
   profiles:
-    active: real # 기본 환경 선택
+    active: local # 기본 환경 선택
 
 # local 환경
 ---
-spring.profiles: real
-spring.profiles.include: db
+spring:
+  profiles: local
+  jpa:
+    show-sql: true

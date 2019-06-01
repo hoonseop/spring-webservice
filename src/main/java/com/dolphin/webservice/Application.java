@@ -11,7 +11,7 @@ public class Application {
 
 	public static final String APPLICATION_LOCATIONS = "spring.config.location="
             + "classpath:application.yml,"
-            + "classpath:db.yml";
+            + "/usr/local/fbb/db.yml";
 
     public static void main(String[] args) {
         new SpringApplicationBuilder(Application.class)

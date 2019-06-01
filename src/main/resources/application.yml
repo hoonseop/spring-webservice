@@ -6,4 +6,4 @@ spring:
 # local 환경
 ---
 spring.profiles: real
-spring.profiles.include: real-db
+spring.profiles.include: db

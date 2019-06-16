@@ -28,7 +28,7 @@ public class PlayersSaveRequestDto {
                 .position(position)
                 .number(number)
                 .salary(salary)
-                .isEnroll(isEnroll)
+//                .isEnroll(isEnroll)
                 .build();
     }
 

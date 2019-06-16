@@ -37,7 +37,7 @@ public class PlayersServiceTest {
                 .number(14)
                 .position("I")
                 .salary(1200)
-                .isEnroll(true)
+//                .isEnroll(true)
                 .build();
 
         //when
@@ -51,7 +51,7 @@ public class PlayersServiceTest {
                     .number(players.getNumber())
                     .position(players.getPosition())
                     .salary(players.getSalary())
-                    .isEnroll(players.isEnroll())
+//                    .isEnroll(players.isEnroll())
                     .build();
             System.out.println(dto.toString());
         }

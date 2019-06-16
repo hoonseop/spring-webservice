@@ -12,7 +12,8 @@ var players = {
         	position: $('#position').val(),
             number: $('#number').val(),
             salary: $('#salary').val(),
-            isEnroll: $('#isEnroll').val()
+            isEnroll: true
+//            isEnroll: $('#isEnroll').val()
         };
 
         $.ajax({

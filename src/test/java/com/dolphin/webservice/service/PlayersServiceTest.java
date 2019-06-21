@@ -11,7 +11,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import com.dolphin.webservice.domain.Player;
 import com.dolphin.webservice.domain.repository.PlayersRepository;
-import com.dolphin.webservice.web.dto.PlayersSaveRequestDto;
+import com.dolphin.webservice.web.dto.PlayerSaveRequestDto;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -31,7 +31,7 @@ public class PlayersServiceTest {
     @Test
     public void Dto데이터가_players테이블에_저장된다 () {
         //given
-        PlayersSaveRequestDto dto = PlayersSaveRequestDto.builder()
+        PlayerSaveRequestDto dto = PlayerSaveRequestDto.builder()
                 .teamName("wyverns")
                 .playerName("최정")
                 .number(14)
@@ -45,7 +45,7 @@ public class PlayersServiceTest {
 
         //then
         for(Player players: playersRepository.findAll()) {
-        	dto = PlayersSaveRequestDto.builder()
+        	dto = PlayerSaveRequestDto.builder()
                     .teamName(players.getTeamName())
                     .playerName(players.getPlayerName())
                     .number(players.getNumber())

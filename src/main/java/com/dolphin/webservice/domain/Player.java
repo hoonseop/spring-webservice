@@ -40,17 +40,18 @@ public class Player extends BaseTimeEntity {
     @Column(nullable = false)
     private int salary;
 
-    @Column(nullable = false)
-    private boolean isEnroll;
+//    @Column(nullable = false)
+//    private boolean isEnroll;
 
     @Builder
-    public Player(String teamName, String playerName, String position, int number, int salary, boolean isEnroll) {
+    public Player(String teamName, String playerName, String position, int number, int salary) {
+//    public Player(String teamName, String playerName, String position, int number, int salary, boolean isEnroll) {
         this.teamName = teamName;
         this.playerName = playerName;
         this.position = position;
         this.number = number;
         this.salary = salary;
-        this.isEnroll = isEnroll;
+//        this.isEnroll = isEnroll;
         playerId = teamName + number;
     }
 

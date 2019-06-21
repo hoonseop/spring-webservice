@@ -5,7 +5,7 @@ import com.dolphin.webservice.domain.Player;
 import lombok.Getter;
 
 @Getter
-public class PlayersMainResponseDto {
+public class PlayerMainResponseDto {
 //    private Long id;
     private String playerId;
     private String teamName;
@@ -13,9 +13,9 @@ public class PlayersMainResponseDto {
     private String position;
     private int number;
     private int salary;
-    private boolean isEnroll;
+//    private boolean isEnroll;
 
-    public PlayersMainResponseDto(Player entity) {
+    public PlayerMainResponseDto(Player entity) {
 //        id = entity.getId();
         playerId = entity.getPlayerId();
         teamName = entity.getTeamName();
@@ -23,7 +23,7 @@ public class PlayersMainResponseDto {
         position = entity.getPosition();
         number = entity.getNumber();
         salary = entity.getSalary();
-        isEnroll = entity.isEnroll();
+//        isEnroll = entity.isEnroll();
     }
 
 }

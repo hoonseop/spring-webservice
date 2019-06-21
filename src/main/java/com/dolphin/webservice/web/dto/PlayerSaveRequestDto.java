@@ -12,14 +12,14 @@ import lombok.ToString;
 @Setter
 @ToString
 @NoArgsConstructor
-public class PlayersSaveRequestDto {
+public class PlayerSaveRequestDto {
     private String playerId;
     private String teamName;
     private String playerName;
     private String position;
     private int number;
     private int salary;
-    private boolean isEnroll;
+//    private boolean isEnroll;
 
     public Player toEntity(){
         return Player.builder()
@@ -33,14 +33,15 @@ public class PlayersSaveRequestDto {
     }
 
     @Builder
-    public PlayersSaveRequestDto(String teamName, String playerName, String position, int number, int salary, boolean isEnroll) {
+    public PlayerSaveRequestDto(String teamName, String playerName, String position, int number, int salary) {
+//    public PlayerSaveRequestDto(String teamName, String playerName, String position, int number, int salary, boolean isEnroll) {
     	this.playerId = teamName + number;
         this.teamName = teamName;
         this.playerName = playerName;
         this.position = position;
         this.number = number;
         this.salary = salary;
-        this.isEnroll = isEnroll;
+//        this.isEnroll = isEnroll;
     }
 
 }

@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.dolphin.webservice.domain.repository.PlayersRepository;
-import com.dolphin.webservice.web.dto.PlayersMainResponseDto;
-import com.dolphin.webservice.web.dto.PlayersSaveRequestDto;
+import com.dolphin.webservice.web.dto.PlayerMainResponseDto;
+import com.dolphin.webservice.web.dto.PlayerSaveRequestDto;
 
 import lombok.AllArgsConstructor;
 
@@ -18,14 +18,14 @@ public class PlayersService {
     private PlayersRepository playersRepository;
 
     @Transactional
-    public Long save(PlayersSaveRequestDto dto){
+    public Long save(PlayerSaveRequestDto dto){
         return playersRepository.save(dto.toEntity()).getId();
     }
 
     @Transactional(readOnly = true)
-    public List<PlayersMainResponseDto> findAllDesc() {
+    public List<PlayerMainResponseDto> findAllDesc() {
         return playersRepository.findAllDesc()
-                .map(PlayersMainResponseDto::new)
+                .map(PlayerMainResponseDto::new)
                 .collect(Collectors.toList());
     }
 

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 //import com.dolphin.webservice.domain.repository.PostsRepository;
 import com.dolphin.webservice.service.PlayersService;
 import com.dolphin.webservice.service.PostsService;
-import com.dolphin.webservice.web.dto.PlayersSaveRequestDto;
+import com.dolphin.webservice.web.dto.PlayerSaveRequestDto;
 import com.dolphin.webservice.web.dto.PostsSaveRequestDto;
 
 import lombok.AllArgsConstructor;
@@ -42,7 +42,7 @@ public class WebRestController {
     }
 
     @PostMapping("/players")
-    public Long savePlayers(@RequestBody PlayersSaveRequestDto dto){
+    public Long savePlayers(@RequestBody PlayerSaveRequestDto dto){
         return playersService.save(dto);
     }
 //    public void savePosts(@RequestBody PostsSaveRequestDto dto){

@@ -1,4 +1,4 @@
-var players = {
+var player = {
     init : function () {
         var _this = this;
         $('#btn-save').on('click', function () {
@@ -18,7 +18,7 @@ var players = {
 
         $.ajax({
             type: 'POST',
-            url: '/players',
+            url: '/player',
             dataType: 'json',
             contentType:'application/json; charset=utf-8',
             data: JSON.stringify(data)
@@ -32,4 +32,4 @@ var players = {
 
 };
 
-players.init();
+player.init();

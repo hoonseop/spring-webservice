@@ -10,18 +10,18 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.dolphin.webservice.domain.Player;
-import com.dolphin.webservice.domain.repository.PlayersRepository;
+import com.dolphin.webservice.domain.repository.PlayerRepository;
 import com.dolphin.webservice.web.dto.PlayerSaveRequestDto;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class PlayersServiceTest {
+public class PlayerServiceTest {
 
     @Autowired
-    private PlayersService playersService;
+    private PlayerService playersService;
 
     @Autowired
-    private PlayersRepository playersRepository;
+    private PlayerRepository playersRepository;
 
     @After
     public void cleanup () {

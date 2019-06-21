@@ -4,7 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import com.dolphin.webservice.service.PlayersService;
+import com.dolphin.webservice.service.PlayerService;
 import com.dolphin.webservice.service.PostsService;
 
 import lombok.AllArgsConstructor;
@@ -13,13 +13,13 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class WebController {
 
-    private PlayersService playersService;
+    private PlayerService playerService;
     private PostsService postsService;
 
-    @GetMapping("/players")
+    @GetMapping("/player")
     public String player(Model model) {
-        model.addAttribute("players", playersService.findAllDesc());
-        return "players";
+        model.addAttribute("player", playerService.findAllDesc());
+        return "player";
     }
 
     @GetMapping("/posts")

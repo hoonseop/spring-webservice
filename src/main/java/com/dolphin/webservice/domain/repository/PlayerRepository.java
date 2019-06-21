@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 
 import com.dolphin.webservice.domain.Player;
 
-public interface PlayersRepository extends JpaRepository<Player, Long> {
+public interface PlayerRepository extends JpaRepository<Player, Long> {
 
     @Query("SELECT p " +
             "FROM Player p " +

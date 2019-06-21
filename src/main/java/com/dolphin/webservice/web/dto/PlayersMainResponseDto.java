@@ -1,6 +1,6 @@
 package com.dolphin.webservice.web.dto;
 
-import com.dolphin.webservice.domain.Players;
+import com.dolphin.webservice.domain.Player;
 
 import lombok.Getter;
 
@@ -15,7 +15,7 @@ public class PlayersMainResponseDto {
     private int salary;
     private boolean isEnroll;
 
-    public PlayersMainResponseDto(Players entity) {
+    public PlayersMainResponseDto(Player entity) {
 //        id = entity.getId();
         playerId = entity.getPlayerId();
         teamName = entity.getTeamName();

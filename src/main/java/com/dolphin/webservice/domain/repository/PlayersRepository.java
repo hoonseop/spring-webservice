@@ -5,13 +5,13 @@ import java.util.stream.Stream;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-import com.dolphin.webservice.domain.Players;
+import com.dolphin.webservice.domain.Player;
 
-public interface PlayersRepository extends JpaRepository<Players, Long> {
+public interface PlayersRepository extends JpaRepository<Player, Long> {
 
     @Query("SELECT p " +
-            "FROM Players p " +
+            "FROM Player p " +
             "ORDER BY p.id DESC")
-    Stream<Players> findAllDesc();
+    Stream<Player> findAllDesc();
 
 }

@@ -1,6 +1,6 @@
 package com.dolphin.webservice.web.dto;
 
-import com.dolphin.webservice.domain.Players;
+import com.dolphin.webservice.domain.Player;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -21,8 +21,8 @@ public class PlayersSaveRequestDto {
     private int salary;
     private boolean isEnroll;
 
-    public Players toEntity(){
-        return Players.builder()
+    public Player toEntity(){
+        return Player.builder()
                 .teamName(teamName)
                 .playerName(playerName)
                 .position(position)

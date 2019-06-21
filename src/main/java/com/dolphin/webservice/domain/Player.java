@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @Getter
 @Entity
-public class Players extends BaseTimeEntity {
+public class Player extends BaseTimeEntity {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
@@ -44,7 +44,7 @@ public class Players extends BaseTimeEntity {
     private boolean isEnroll;
 
     @Builder
-    public Players(String teamName, String playerName, String position, int number, int salary, boolean isEnroll) {
+    public Player(String teamName, String playerName, String position, int number, int salary, boolean isEnroll) {
         this.teamName = teamName;
         this.playerName = playerName;
         this.position = position;

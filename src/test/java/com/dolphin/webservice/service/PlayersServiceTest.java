@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.dolphin.webservice.domain.Players;
+import com.dolphin.webservice.domain.Player;
 import com.dolphin.webservice.domain.repository.PlayersRepository;
 import com.dolphin.webservice.web.dto.PlayersSaveRequestDto;
 
@@ -44,7 +44,7 @@ public class PlayersServiceTest {
         playersService.save(dto);
 
         //then
-        for(Players players: playersRepository.findAll()) {
+        for(Player players: playersRepository.findAll()) {
         	dto = PlayersSaveRequestDto.builder()
                     .teamName(players.getTeamName())
                     .playerName(players.getPlayerName())
@@ -56,7 +56,7 @@ public class PlayersServiceTest {
             System.out.println(dto.toString());
         }
 
-//        Players players = playersRepository.findAll().get(1);
+//        Player players = playersRepository.findAll().get(1);
 //        assertThat(players.getTeamName()).isEqualTo(dto.getTeamName());
 //        assertThat(players.getPlayerName()).isEqualTo(dto.getPlayerName());
 //        assertThat(players.getNumber()).isEqualTo(dto.getNumber());

@@ -3,7 +3,12 @@ spring:
   profiles:
     active: real # 기본 환경 선택
 
+logging:
+  pattern:
+    console: "[%d{yyyy-MM-dd HH:mm:ss}] [%t] [%p] %c:%F:%L - %msg%n"
+
 # local 환경
 ---
 spring.profiles: real
 spring.profiles.include: db
+spring.jpa.open-in-view: true

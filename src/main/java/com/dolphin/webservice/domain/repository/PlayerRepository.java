@@ -11,7 +11,7 @@ public interface PlayerRepository extends JpaRepository<Player, Long> {
 
     @Query("SELECT p " +
             "FROM Player p " +
-            "ORDER BY p.id DESC")
+            "ORDER BY p.playerId DESC")
     Stream<Player> findAllDesc();
 
 }

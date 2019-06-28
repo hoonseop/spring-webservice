@@ -17,21 +17,29 @@ import lombok.NoArgsConstructor;
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @Getter
 @Entity
-public class Roster extends BaseTimeEntity {
+public class Point extends BaseTimeEntity {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
 
     @Column(length = 16, nullable = false)
-    private String ownerId;
-
-    @Column(length = 16, nullable = false)    
     private String playerId;
 
+    @Column(length = 16, nullable = false)
+    private String playerName;
+
+    @Column(length = 16, nullable = false)
+    private String playDate;
+
+    @Column(nullable = false)
+    private double point;
+
     @Builder
-    public Roster(String ownerId, String playerId) {
-        this.ownerId = ownerId;
+    public Point(String playerId, String playerName, String playDate, double point) {
         this.playerId = playerId;
+        this.playerName = playerName;
+        this.playDate = playDate;
+        this.point = point;
     }
 
 }

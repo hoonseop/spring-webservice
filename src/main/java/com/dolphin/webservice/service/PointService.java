@@ -15,16 +15,23 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 @Service
 public class PointService {
-    private PointRepository playerRepository;
+    private PointRepository pointRepository;
 
     @Transactional
     public Long save(PointSaveRequestDto dto){
-        return playerRepository.save(dto.toEntity()).getId();
+        return pointRepository.save(dto.toEntity()).getId();
     }
 
     @Transactional(readOnly = true)
     public List<PointMainResponseDto> findAllDesc() {
-        return playerRepository.findAllDesc()
+        return pointRepository.findAllDesc()
+                .map(PointMainResponseDto::new)
+                .collect(Collectors.toList());
+    }
+
+    @Transactional(readOnly = true)
+    public List<PointMainResponseDto> findByDate(String playDate) {
+        return pointRepository.findByplaydate(playDate)
                 .map(PointMainResponseDto::new)
                 .collect(Collectors.toList());
     }

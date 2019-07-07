@@ -19,7 +19,6 @@ public class PlayerSaveRequestDto {
     private String position;
     private int number;
     private int salary;
-//    private boolean isEnroll;
 
     public Player toEntity(){
         return Player.builder()
@@ -28,20 +27,17 @@ public class PlayerSaveRequestDto {
                 .position(position)
                 .number(number)
                 .salary(salary)
-//                .isEnroll(isEnroll)
                 .build();
     }
 
     @Builder
     public PlayerSaveRequestDto(String teamName, String playerName, String position, int number, int salary) {
-//    public PlayerSaveRequestDto(String teamName, String playerName, String position, int number, int salary, boolean isEnroll) {
     	this.playerId = teamName + number;
         this.teamName = teamName;
         this.playerName = playerName;
         this.position = position;
         this.number = number;
         this.salary = salary;
-//        this.isEnroll = isEnroll;
     }
 
 }

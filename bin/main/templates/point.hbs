@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Fantasy Baseball</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!--부트스트랩 css 추가-->
+    <link rel="stylesheet" href="/css/lib/bootstrap.min.css">
+</head>
+<body>
+    <h1>FBB 서비스 (Fantasy Baseball, ver. 0.3)</h1>
+    <div class="col-md-12">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#searchPointModal">점수 조회</button>
+        <br/>
+        <br/>
+        <!-- 목록 출력 영역 -->
+        <table class="table table-horizontal table-bordered">
+            <thead class="thead-strong">
+                <tr>
+                    <th>날짜</th>
+                    <th>선수명</th>
+                    <th>점수</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+            {{#each point}}
+                <tr>
+                    <td>{{playDate}}</td>
+                    <td>{{playerName}}</td>
+                    <td>{{point}}</td>
+                </tr>
+            {{/each}}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Modal 영역 -->
+    <div class="modal fade" id="searchPointModal" tabindex="-1" role="dialog" aria-labelledby="searchPointLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="searchPointLabel">점수 조회</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="teamName"> 팀명 </label>
+                            <input type="text" class="form-control" id="teamName" placeholder="팀명을 입력하세요">
+                        </div>
+                        <div class="form-group">
+                            <label for="playerName"> 선수명 </label>
+                            <input type="text" class="form-control" id="playerName" placeholder="선수명을 입력하세요">
+                        </div>
+                        <div class="form-group">
+                            <label for="playDate"> 날짜 </label>
+                            <input type="text" class="form-control" id="playDate" placeholder="날짜를 입력하세요 (YYYYMMDD)">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+                    <button type="button" class="btn btn-primary" id="btn-search">조회</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--부트스트랩 js, jquery 추가-->
+    <script src="/js/lib/jquery.min.js"></script>
+    <script src="/js/lib/bootstrap.min.js"></script>
+
+    <script src="/js/app/point.js"></script>
+
+</body>
+</html>

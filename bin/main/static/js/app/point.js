@@ -1,4 +1,7 @@
-var player = {
+/**
+ * 
+ */
+var posts = {
     init : function () {
         var _this = this;
         $('#btn-save').on('click', function () {
@@ -7,22 +10,19 @@ var player = {
     },
     save : function () {
         var data = {
-        	teamName: $('#teamName').val(),
-        	playerName: $('#playerName').val(),
-        	position: $('#position').val(),
-            number: $('#number').val(),
-            salary: $('#salary').val(),
-            isEnroll: true
+            title: $('#title').val(),
+            author: $('#author').val(),
+            content: $('#content').val()
         };
 
         $.ajax({
             type: 'POST',
-            url: '/player',
+            url: '/posts',
             dataType: 'json',
             contentType:'application/json; charset=utf-8',
             data: JSON.stringify(data)
         }).done(function() {
-            alert('선수가 등록되었습니다.');
+            alert('글이 등록되었습니다.');
             location.reload();
         }).fail(function (error) {
             alert(error);
@@ -31,4 +31,4 @@ var player = {
 
 };
 
-player.init();
+posts.init();

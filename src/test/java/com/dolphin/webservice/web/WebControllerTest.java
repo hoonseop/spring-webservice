@@ -23,6 +23,6 @@ public class WebControllerTest {
         System.out.println("\n" + body+"\n");
 
         //then
-        assertThat(body).contains("404");
+        assertThat(body).contains("FBB");
     }
 }

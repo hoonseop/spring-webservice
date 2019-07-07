@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Fantasy Baseball</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!--부트스트랩 css 추가-->
+    <link rel="stylesheet" href="/css/lib/bootstrap.min.css">
+</head>
+<body>
+    <h1>FBB 서비스 (Fantasy Baseball, ver. 0.3)</h1>
+    <div class="col-md-12">
+		<input type="button" class="btn btn-primary" value="선수 목록" onclick=" relocate_player()">
+        <br/>
+        <br/>
+		<input type="button" class="btn btn-primary" value="점수 조회" onclick=" relocate_point()">
+        <br/>
+        <br/>
+    </div>
+
+    <!--부트스트랩 js, jquery 추가-->
+    <script src="/js/lib/jquery.min.js"></script>
+    <script src="/js/lib/bootstrap.min.js"></script>
+
+	<script>
+	function relocate_player()
+	{
+	     location.href = "/player";
+	} 
+	function relocate_point()
+	{
+	     location.href = "/point";
+	} 
+	</script>
+
+</body>
+</html>

@@ -5,6 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.dolphin.webservice.service.PlayerService;
+import com.dolphin.webservice.service.PointService;
 import com.dolphin.webservice.service.PostsService;
 
 import lombok.AllArgsConstructor;
@@ -14,6 +15,7 @@ import lombok.AllArgsConstructor;
 public class WebController {
 
     private PlayerService playerService;
+    private PointService pointService;
     private PostsService postsService;
 
     @GetMapping("/player")
@@ -26,5 +28,11 @@ public class WebController {
     public String post(Model model) {
         model.addAttribute("posts", postsService.findAllDesc());
         return "posts";
+    }
+
+    @GetMapping("/point")
+    public String point(Model model) {
+        model.addAttribute("point", pointService.findAllDesc());
+        return "point";
     }
 }

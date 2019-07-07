@@ -13,7 +13,6 @@ var player = {
             number: $('#number').val(),
             salary: $('#salary').val(),
             isEnroll: true
-//            isEnroll: $('#isEnroll').val()
         };
 
         $.ajax({

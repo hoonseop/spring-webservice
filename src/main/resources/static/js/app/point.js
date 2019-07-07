@@ -1,28 +1,28 @@
 /**
  * 
  */
-var posts = {
+var point = {
     init : function () {
         var _this = this;
-        $('#btn-save').on('click', function () {
-            _this.save();
+        $('#btn-search').on('click', function () {
+            _this.search();
         });
     },
-    save : function () {
-        var data = {
-            title: $('#title').val(),
-            author: $('#author').val(),
-            content: $('#content').val()
+    search : function () {
+        var params = {
+            teamName: $('#teamName').val(),
+            playerName: $('#playerName').val(),
+        	playDate: $('#playDate').val()
         };
+        console.log($('#playDate').val())
 
         $.ajax({
-            type: 'POST',
-            url: '/posts',
+            type: 'GET',
+            url: '/point',
             dataType: 'json',
             contentType:'application/json; charset=utf-8',
-            data: JSON.stringify(data)
+            data: JSON.stringify(encodeURI(params))
         }).done(function() {
-            alert('글이 등록되었습니다.');
             location.reload();
         }).fail(function (error) {
             alert(error);
@@ -31,4 +31,4 @@ var posts = {
 
 };
 
-posts.init();
+point.init();

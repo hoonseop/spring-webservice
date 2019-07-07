@@ -11,8 +11,7 @@ var player = {
         	playerName: $('#playerName').val(),
         	position: $('#position').val(),
             number: $('#number').val(),
-            salary: $('#salary').val(),
-            isEnroll: true
+            salary: $('#salary').val()
         };
 
         $.ajax({

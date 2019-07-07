@@ -24,6 +24,12 @@ public class WebController {
         return "player";
     }
 
+    @GetMapping("/playerAll")
+    public String playerAll(Model model) {
+        model.addAttribute("playerAll", playerService.findAllDesc());
+        return "playerAll";
+    }
+
     @GetMapping("/posts")
     public String post(Model model) {
         model.addAttribute("posts", postsService.findAllDesc());

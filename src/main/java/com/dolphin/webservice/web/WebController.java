@@ -1,6 +1,8 @@
 package com.dolphin.webservice.web;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Iterator;
 import java.util.Map;
 
 import org.springframework.stereotype.Controller;
@@ -12,12 +14,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import com.dolphin.webservice.service.PlayerService;
 import com.dolphin.webservice.service.PointService;
 import com.dolphin.webservice.service.PostsService;
+import com.dolphin.webservice.web.dto.PointMainResponseDto;
+
 import lombok.AllArgsConstructor;
 
 @Controller
 @AllArgsConstructor
 public class WebController {
-	static private String today = "20190706";
+	static private String today = null;
 
 	private PlayerService playerService;
 	private PointService pointService;
@@ -44,14 +48,7 @@ public class WebController {
 	@GetMapping("/point")
 	public String point(Model model) {
 		model.addAttribute("point", pointService.findByDate(getDate()));
-//    	Map result = model.asMap();
-//    	for(Object key: result.keySet()) {
-//    		Iterator list = ((ArrayList) result.get(key)).iterator();
-//    		while(list.hasNext()) {
-//    			PointMainResponseDto dto = (PointMainResponseDto) list.next();
-//        		System.out.println(dto.getPlayerName() + ":" + dto.getPlayDate() + ":" + dto.getPoint());
-//    		}
-//    	}
+    	printPoint(model);
 		return "point";
 	}
 
@@ -60,20 +57,24 @@ public class WebController {
 //		System.out.print("##########\n\nparams.get(\"playDate\"): " + params.get("playDate") + "\n\n##########");
 		today = params.get("playDate");
 		model.addAttribute("point", pointService.findByDate(getDate()));
-//    	Map result = model.asMap();
-//    	for(Object key: result.keySet()) {
-//    		Object value = result.get(key);
-//    		if(value instanceof ArrayList) {
-//        		Iterator list = ((ArrayList) result.get(key)).iterator();
-//        		while(list.hasNext()) {
-//        			PointMainResponseDto dto = (PointMainResponseDto) list.next();
-//            		System.out.println(dto.getPlayerName() + ":" + dto.getPlayDate() + ":" + dto.getPoint());
-//        		}
-//    		} else {
-//        		System.out.println(value.getClass());
-//    		}
-//    	}
+    	printPoint(model);
 		return "point";
+	}
+
+	private void printPoint(Model model) {
+		Map<?, ?> result = model.asMap();
+    	for(Object key: result.keySet()) {
+    		Object value = result.get(key);
+    		if(value instanceof ArrayList) {
+        		Iterator<?> list = ((ArrayList<?>) result.get(key)).iterator();
+        		while(list.hasNext()) {
+        			PointMainResponseDto dto = (PointMainResponseDto) list.next();
+            		System.out.println(dto.getPlayerName() + ":" + dto.getPlayDate() + ":" + dto.getPoint());
+        		}
+    		} else {
+        		System.out.println(value.getClass());
+    		}
+    	}
 	}
 
 	private String getDate() {

@@ -1,15 +1,14 @@
 package com.dolphin.webservice.web;
 
 import java.util.Arrays;
-
 import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-//import com.dolphin.webservice.domain.repository.PostsRepository;
 import com.dolphin.webservice.service.PlayerService;
+import com.dolphin.webservice.service.PointService;
 import com.dolphin.webservice.service.PostsService;
 import com.dolphin.webservice.web.dto.PlayerSaveRequestDto;
 import com.dolphin.webservice.web.dto.PostsSaveRequestDto;
@@ -19,7 +18,7 @@ import lombok.AllArgsConstructor;
 @RestController
 @AllArgsConstructor
 public class WebRestController {
-//    private PostsRepository postsRepository;
+    private PointService pointService;
     private PostsService postsService;
     private PlayerService playerService;
     private Environment environment;
@@ -45,7 +44,5 @@ public class WebRestController {
     public Long savePlayer(@RequestBody PlayerSaveRequestDto dto){
         return playerService.save(dto);
     }
-//    public void savePosts(@RequestBody PostsSaveRequestDto dto){
-//        postsRepository.save(dto.toEntity());
-//    }
+
 }

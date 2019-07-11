@@ -48,16 +48,15 @@ public class WebController {
 	@GetMapping("/point")
 	public String point(Model model) {
 		model.addAttribute("point", pointService.findByDate(getDate()));
-    	printPoint(model);
+//    	printPoint(model);
 		return "point";
 	}
 
 	@PostMapping("/searchPoint")
 	public String searchPoint(@RequestBody Map<String, String> params, Model model) {
-//		System.out.print("##########\n\nparams.get(\"playDate\"): " + params.get("playDate") + "\n\n##########");
 		today = params.get("playDate");
 		model.addAttribute("point", pointService.findByDate(getDate()));
-    	printPoint(model);
+//    	printPoint(model);
 		return "point";
 	}
 

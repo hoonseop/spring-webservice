@@ -10,11 +10,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.dolphin.webservice.service.PlayerService;
 import com.dolphin.webservice.service.PointService;
 import com.dolphin.webservice.service.PostsService;
-import com.dolphin.webservice.web.dto.PointMainResponseDto;
+import com.dolphin.webservice.web.dto.PlayerDto;
+import com.dolphin.webservice.web.dto.PointDto;
 
 import lombok.AllArgsConstructor;
 
@@ -27,38 +29,31 @@ public class WebController {
 	private PointService pointService;
 	private PostsService postsService;
 
-	@GetMapping("/player")
-	public String player(Model model) {
-		model.addAttribute("player", playerService.findAllDesc());
+	@GetMapping("/findPlayerAll")
+	public String findPlayerAll(Model model) {
+		model.addAttribute("player", playerService.findPlayerAll());
 		return "player";
 	}
 
-	@GetMapping("/playerAll")
-	public String playerAll(Model model) {
-		model.addAttribute("playerAll", playerService.findAllDesc());
-		return "playerAll";
-	}
-
-	@GetMapping("/posts")
-	public String post(Model model) {
-		model.addAttribute("posts", postsService.findAllDesc());
-		return "posts";
-	}
-
-	@GetMapping("/point")
-	public String point(Model model) {
-		model.addAttribute("point", pointService.findByDate(getDate()));
+	@GetMapping("/findPointAll")
+	public String findPointAll(Model model) {
+		model.addAttribute("point", pointService.findPointByPlayDate(getDate()));
 //    	printPoint(model);
 		return "point";
 	}
 
-	@PostMapping("/searchPoint")
-	public String searchPoint(@RequestBody Map<String, String> params, Model model) {
+	@PostMapping("/findPointByPlayDate")
+	public String findPointByPlayDate(@RequestBody Map<String, String> params, Model model) {
 		today = params.get("playDate");
-		model.addAttribute("point", pointService.findByDate(getDate()));
+		model.addAttribute("point", pointService.findPointByPlayDate(getDate()));
 //    	printPoint(model);
 		return "point";
 	}
+
+    @PostMapping("/savePlayer")
+    public @ResponseBody Long savePlayer(@RequestBody PlayerDto dto){
+        return playerService.savePlayer(dto);
+    }
 
 	private void printPoint(Model model) {
 		Map<?, ?> result = model.asMap();
@@ -67,7 +62,7 @@ public class WebController {
     		if(value instanceof ArrayList) {
         		Iterator<?> list = ((ArrayList<?>) result.get(key)).iterator();
         		while(list.hasNext()) {
-        			PointMainResponseDto dto = (PointMainResponseDto) list.next();
+        			PointDto dto = (PointDto) list.next();
             		System.out.println(dto.getPlayerName() + ":" + dto.getPlayDate() + ":" + dto.getPoint());
         		}
     		} else {
@@ -98,4 +93,16 @@ public class WebController {
 		}
 		return today;
 	}
+
+//	@GetMapping("/playerAll")
+//	public String playerAll(Model model) {
+//		model.addAttribute("playerAll", playerService.findPlayerAll());
+//		return "playerAll";
+//	}
+
+//	@GetMapping("/posts")
+//	public String post(Model model) {
+//		model.addAttribute("posts", postsService.findAllDesc());
+//		return "posts";
+//	}
 }

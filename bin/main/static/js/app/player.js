@@ -16,7 +16,7 @@ var player = {
 
         $.ajax({
             type: 'POST',
-            url: '/player',
+            url: '/savePlayer',
             dataType: 'json',
             contentType:'application/json; charset=utf-8',
             data: JSON.stringify(data)

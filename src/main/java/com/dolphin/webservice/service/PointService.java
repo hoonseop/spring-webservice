@@ -7,9 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.dolphin.webservice.domain.repository.PointRepository;
-import com.dolphin.webservice.web.dto.PointMainResponseDto;
-import com.dolphin.webservice.web.dto.PointSaveRequestDto;
-
+import com.dolphin.webservice.web.dto.PointDto;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
@@ -18,21 +16,21 @@ public class PointService {
     private PointRepository pointRepository;
 
     @Transactional
-    public Long save(PointSaveRequestDto dto){
+    public Long save(PointDto dto){
         return pointRepository.save(dto.toEntity()).getId();
     }
 
     @Transactional(readOnly = true)
-    public List<PointMainResponseDto> findAllDesc() {
-        return pointRepository.findAllDesc()
-                .map(PointMainResponseDto::new)
+    public List<PointDto> findPointAll() {
+        return pointRepository.findPointAll()
+                .map(PointDto::new)
                 .collect(Collectors.toList());
     }
 
     @Transactional(readOnly = true)
-    public List<PointMainResponseDto> findByDate(String playDate) {
-        return pointRepository.findByplaydate(playDate)
-                .map(PointMainResponseDto::new)
+    public List<PointDto> findPointByPlayDate(String playDate) {
+        return pointRepository.findPointByPlayDate(playDate)
+                .map(PointDto::new)
                 .collect(Collectors.toList());
     }
 

@@ -13,11 +13,11 @@ public interface PointRepository extends JpaRepository<Point, Long> {
     @Query("SELECT p " +
             "FROM Point p " +
             "ORDER BY p.playDate DESC, p.point DESC")
-    Stream<Point> findAllDesc();
+    Stream<Point> findPointAll();
 
     @Query("SELECT p " +
             "FROM Point p where p.playDate = :playDate " +
             "ORDER BY p.point DESC")
-    Stream<Point> findByplaydate(@Param("playDate") String playDate);
+    Stream<Point> findPointByPlayDate(@Param("playDate") String playDate);
 
 }

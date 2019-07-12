@@ -15,7 +15,7 @@ var point = {
 
 		$.ajax({
 			type: 'POST',
-			url: '/searchPoint',
+			url: '/findPointByPlayDate',
 			dataType: 'json',
 			contentType:'application/json; charset=utf-8',
 			data: JSON.stringify(data)

@@ -1,9 +1,9 @@
 plugins {
 	id 'org.springframework.boot' version '2.1.4.RELEASE'
 	id 'java'
-    id 'pmd'
-    id "io.spring.dependency-management" version "1.0.8.RELEASE"
 }
+
+apply plugin: 'io.spring.dependency-management'
 
 group = 'com.dolphin'
 version = '0.0.2-SNAPSHOT'

@@ -8,14 +8,14 @@
     <!--부트스트랩 css 추가-->
     <link rel="stylesheet" href="/css/lib/bootstrap.min.css">
 </head>
-<body>
-    <h1>FBB 서비스 (Fantasy Baseball, ver. 0.6)</h1>
+<body style="background-color: navy; color: white;">
+    <h1><b>&nbsp;&nbsp;FBB 서비스</b> (Fantasy Baseball, ver. 0.6.1)</h1>
     <div class="col-md-12">
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#savePlayerModal">선수 등록</button>
         <br/>
         <br/>
         <!-- 목록 출력 영역 -->
-        <table class="table table-horizontal table-bordered">
+        <table class="table table-horizontal table-bordered", style="background-color: navy; color: white;">
             <thead class="thead-strong">
                 <tr>
                     <th>ID</th>
@@ -45,13 +45,13 @@
     <div class="modal fade" id="savePlayerModal" tabindex="-1" role="dialog" aria-labelledby="savePlayerLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header", style="background-color: lightgray; color: black;">
                     <h5 class="modal-title" id="savePlayerLabel">선수 등록</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body", style="background-color: lightgray; color: black;">
                     <form>
                         <div class="form-group">
                             <label for="teamName"> 팀명 </label>
@@ -75,7 +75,7 @@
                         </div>
                     </form>
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer", style="background-color: lightgray; color: black;">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
                     <button type="button" class="btn btn-primary" id="btn-save">등록</button>
                 </div>

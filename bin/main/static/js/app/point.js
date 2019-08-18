@@ -10,7 +10,7 @@ var point = {
 	},
 	search : function () {
 		var data = {
-			playDate: $('#playDate').val()
+			playDate: $('#txt-search').val()
 		};
 
 		$.ajax({

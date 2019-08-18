@@ -9,12 +9,15 @@
     <link rel="stylesheet" href="/css/lib/bootstrap.min.css">
 </head>
 <body style="background-color: navy; color: white;">
-    <h1><b>&nbsp;&nbsp;FBB 서비스</b> (Fantasy Baseball, ver. 0.6.1)</h1>
+    <br/><h1><b>&nbsp;&nbsp;FBB 서비스</b> (Fantasy Baseball, ver. 0.6.1)</h1><br/>
     <div class="col-md-12">
 		<input type="button" class="btn btn-primary" value="선수 목록" onclick=" relocate_player()">
         <br/>
         <br/>
-		<input type="button" class="btn btn-primary" value="점수 조회" onclick=" relocate_point()">
+		<input type="button" class="btn btn-primary" value="날짜별 점수" onclick=" relocate_point()">
+        <br/>
+        <br/>
+        <input type="button" class="btn btn-primary" value="선수별 총점" onclick=" relocate_sum()">
         <br/>
         <br/>
     </div>
@@ -32,6 +35,10 @@
 	{
 	     location.href = "/findPointToday";
 	} 
+    function relocate_sum()
+    {
+         location.href = "/findPointSum";
+    } 
 	</script>
 
 </body>

@@ -1,52 +1,51 @@
 package com.dolphin.webservice.web.dto;
 
-import com.dolphin.webservice.domain.Point;
+import com.dolphin.webservice.domain.PointSum;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+/*
+ * 
+SELECT s FROM com.dolphin.webservice.domain.PointSum sORDER by s.summary DESC
+ */
 @Getter
 @Setter
 @ToString
 @NoArgsConstructor
-public class PointDto {
+public class PointSumDto {
     private String playerId;
     private String teamName;
     private String number;
     private String playerName;
-    private String playDate;
-    private double point;
+    private double summary;
 
-    public PointDto(Point entity) {
+    public PointSumDto(PointSum entity) {
         playerId = entity.getPlayerId();
         playerName = entity.getPlayerName();
-        playDate = entity.getPlayDate();
-        point = entity.getPoint();
+        summary = entity.getSummary();
         
 		number = playerId.replaceAll("[^0-9]", "");
 		teamName = playerId.substring(0, playerId.indexOf(number));
     }
 
-    public Point toEntity(){
-        return Point.builder()
+    public PointSumDto toEntity(){
+        return PointSumDto.builder()
                 .playerId(playerId)
                 .playerName(playerName)
-                .playDate(playDate)
-                .point(point)
+                .summary(summary)
                 .build();
     }
 
     @Builder
-    public PointDto(String playerId, String playerName, String playDate, double point) {
-    	this.playerId = playerId;
-        this.playerName = playerName;
-        this.playDate = playDate;
-        this.point = point;
-        
+    public PointSumDto(String playerId, String playerName, double summary) {
+    	this.playerId = playerId;        
 		number = playerId.replaceAll("[^0-9]", "");
 		teamName = playerId.substring(0, playerId.indexOf(number));
+        this.playerName = playerName;
+        this.summary = summary;
     }
 
 }

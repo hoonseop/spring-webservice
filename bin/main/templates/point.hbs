@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="/css/lib/bootstrap.min.css">
 </head>
 <body style="background-color: navy; color: white;">
-    <h1><b>&nbsp;&nbsp;FBB 점수 목록</b></h1><br/>
+    <br/>
+    <h1><b>&nbsp;&nbsp;날짜별 점수</b></h1><br/>
     <div class="col-md-12">
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#searchPointModal">점수 조회</button>
         <br/>
@@ -46,18 +47,20 @@
                     </button>
                 </div>
                 <div class="modal-body", style="background-color: lightgray; color: black;">
+                    <!-- 
                     <form>
+                     -->
                         <div class="form-group">
-                            <label for="playDate"> 날짜 </label>
-                            <input type="text" class="form-control" id="playDate" placeholder="날짜를 입력하세요 (YYYYMMDD)">
+                            <label for="txt-search"> 날짜 </label>
+                            <input type="text" class="form-control" id="txt-search" placeholder="날짜를 입력하세요 (YYYYMMDD)">
                         </div>
                         <!-- 
                         <div class="form-group">
                             <label for="playerName"> 선수명 </label>
                             <input type="text" class="form-control" id="playerName" placeholder="선수명을 입력하세요">
                         </div>
-                        -->
                     </form>
+                        -->
                 </div>
                 <div class="modal-footer", style="background-color: lightgray; color: black;">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>

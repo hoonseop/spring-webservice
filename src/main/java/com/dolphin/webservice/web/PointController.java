@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.dolphin.webservice.service.PointService;
+import com.dolphin.webservice.service.PointSumService;
 import com.dolphin.webservice.util.ControllerUtil;
 
 import lombok.AllArgsConstructor;
@@ -19,6 +20,13 @@ import lombok.AllArgsConstructor;
 public class PointController {
 	private static String playDate = null;
 	private PointService pointService;
+	private PointSumService pointSumService;
+
+	@GetMapping("/findPointSum")
+	public String findPointSum(Model model) {
+		model.addAttribute("sum", pointSumService.findPointSum());
+		return "sum";
+	}
 
 	@GetMapping("/findPointToday")
 	public String findPointToday(Model model) {

@@ -25,7 +25,7 @@ public class PointController {
 	@GetMapping("/findPointSum")
 	public String findPointSum(Model model) {
 		model.addAttribute("sum", pointSumService.findPointSum());
-		return "sum";
+		return "summary";
 	}
 
 	@GetMapping("/findPointToday")
